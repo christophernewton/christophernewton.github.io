@@ -1,0 +1,13 @@
+{
+  "production": false,
+  "coredna" : true,
+  "siteUrl": "WEBSITE.URL.DEFINED.IN.config.json",
+  "krakenKey": "4954e7024bf805daf142439347dd92d5",
+  "krakenSecretKey": "95e2092d622ba4212c503359b8cb8c99ef4a597b",
+  "dependencies" : {
+    "javascripts" : [
+      "./dependencies/jquery/dist/jquery.js",
+      "./dependencies/slick-carousel/slick.js"
+    ]
+  }
+}
