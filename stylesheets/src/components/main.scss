@@ -4,17 +4,25 @@ body {
 	font-family:Roboto, arial;
 	color:#282627;
 	font-size:16px;
+	padding-bottom:50px;
 }
-
+a {
+	color:#282726;
+	font-weight:bold;
+}
 .project {
 	@include clearfix;
 	padding:20px 0;
 	.project__title {
+		@include transition(all 0.5s $ease-out-quad);
 		text-align:center;
 		padding:100px 0;
 	}
 	.project__container {
 		@include position(relative);
+		@media (pointer: coarse) {
+			cursor: pointer;
+		}
 		&:hover { 
 			.project__screens {
 				height:254px;
@@ -22,10 +30,10 @@ body {
 			.project__slide {
 				&:before, &:after {
 					opacity:1;
-					@include transform(rotate(-22deg));
+					@include transform(rotate(0deg));
 				}
 			}
-			.project__link {
+			.project__link, .project__content {
 				opacity:1;
 			}
 		}
@@ -40,37 +48,36 @@ body {
 	}
 	.project__slide {
 		@include position(absolute);
+		background-size:cover;
 		background-position: center center;
 		background-repeat: no-repeat;
 		width:100%;
 		height:100%;
 		&:after {
-			@include position(absolute, 0 null null -25%);
-			@include transform(rotate(-20deg));
+			@include position(absolute, 0 null null 0%);
+			@include transform(rotate(-10deg));
 			@include transform-origin(top left);
 			@include transition(all 0.5s $ease-out-quad 0.2s);
-			width:1600px;
-			height:200%;
+			backdrop-filter: blur(10px);
+			width:50%;
+			height:100%;
 			display:block;
 			content:'';
-			background:rgba(255,255,255,0.9);
+			background:rgba(255,255,255,0.8);
 			opacity:0;
 		}
 		&:before {
-			@include position(absolute, null -25% 0 null);
-			@include transform(rotate(-20deg));
+			@include position(absolute, null 0% 0 null);
+			@include transform(rotate(-10deg));
 			@include transform-origin(bottom right);
 			@include transition(all 0.5s $ease-out-quad 0.2s);
-			width:1600px;
-			height:200%;
+			backdrop-filter: blur(10px);
+			width:50%;
+			height:100%;
 			display:block;
 			content:'';
-			background:rgba(255,255,255,0.9);
+			background:rgba(255,255,255,0.8);
 			opacity:0;
-			display:none;
-			@include media($mq-lap) {
-				display:block;
-			}
 		}
 	}
 	.project__link {
@@ -78,30 +85,54 @@ body {
 		@include transition(all 0.3s $ease-out-quad 0.3s);
 		opacity:0;
 		display:block;
-		width:50%;
 		height:100%;
+		width:40%;
+		@include media($mq-lap) {
+			width:50%;
+		}
 		.project__view {
 			@include position(absolute, 50% null null 50%);
 			@include transform(translate(-50%,-50%));
 			@include border-top-radius(3px);
 			@include border-bottom-radius(3px);
+			@include transition(all 0.3s $ease-out-quad);
 			width:100%;
 			padding:20px 0;
-			max-width:200px;
+			max-width:130px;
 			margin:auto;
 			text-align: center;
 			background:rgba(40,40,40,0.8);
 			color:#fff;
 			border:1px solid #282726;
+			font-size:12px;
+			&:hover {
+				background:lighten(#282726,10%);
+			}
+			@include media($mq-lap) {
+				max-width:200px;
+				font-size:16px;
+			}
 		}
 	}
 	.project__description {
 		@include position(absolute, 0 0 null null);
-		width:50%;
 		height:100%;
+		width:60%;
+		@include media($mq-lap) {
+			width:50%;
+		}
 		.project__content {		
 			@include position(absolute, 50% null null 50%);
 			@include transform(translate(-50%,-50%));
+			@include transition(all 0.3s $ease-out-quad 0.3s);
+			opacity:0;
+			font-size:12px;
+			ul {
+				padding-left:20px;
+			}
+			@include media($mq-lap) {
+				font-size:16px;
+			}
 		}
 	}
 }

@@ -16,6 +16,14 @@
 		opacity:1;
 	}
 }
+@keyframes opacityHide {
+	0% {
+    	opacity:1;
+	}
+	100% {
+		opacity:0;
+	}
+}
 @keyframes taglineFade {
 	0% {
     	opacity:0;
@@ -32,7 +40,7 @@ header {
 		display: block;
 		float:left;
 		.logo__lines path {
-			@include animation(dash 3s $ease-out-quad alternate forwards 0.5s);
+			@include animation(dash 3s $ease-out-quad alternate forwards 0.5s, opacityHide 3s $ease-out-quad alternate forwards 5.5s);
 			stroke-dasharray: 400;
 			stroke-dashoffset: 400;
 		}
