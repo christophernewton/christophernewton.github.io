@@ -1,24 +1,62 @@
+@keyframes dash {
+	0% {
+    	stroke-dashoffset: 400;
+    	opacity:0.7;
+	}
+	100% {
+    	stroke-dashoffset: 0;
+    	opacity: 1;
+	}
+}
+@keyframes opacity {
+	0% {
+    	opacity:-5;
+	}
+	100% {
+		opacity:1;
+	}
+}
+@keyframes taglineFade {
+	0% {
+    	opacity:0;
+    	@include transform(translate(-10px,0));
+	}
+	100% {
+		opacity:1;
+		@include transform(translate(10px,0));
+	}
+}
 header {
+	padding:20px 0;
 	.logo {
-		.logo__first {
+		display: block;
+		float:left;
+		.logo__lines path {
+			@include animation(dash 3s $ease-out-quad alternate forwards 0.5s);
 			stroke-dasharray: 400;
 			stroke-dashoffset: 400;
-			animation: dash 8s ease-out alternate forwards 1.5s;
 		}
-		.logo__last {
-			stroke-dasharray: 400;
-			stroke-dashoffset: 400;
-			animation: dash 8s ease-out alternate forwards 1.5s;
+		.logo__fill path {
+			@include animation(opacity 1s $ease-out-quad alternate forwards 5s);
+			opacity:0;
+		}
+
+		@for $i from 1 to 12 {
+			.logo__fill path:nth-child(#{$i}), .logo__lines path:nth-child(#{$i}) {
+				$delay: 0.4 * $i !default
+				animation-delay:#{$delay}s;
+			}
 		}
 	}
-	@keyframes dash {
-		0% {
-	    	stroke-dashoffset: 400;
-	    	opacity:0.7;
-		}
-		100% {
-	    	stroke-dashoffset: 0;
-	    	opacity: 1;
-		}
+	.header__tagline {
+		@include transform(translate(-10px,0));
+		@include animation(taglineFade 0.5s $ease-out-quad alternate forwards 5s);
+		margin-top:30px;
+		font-size:12px;
+		float:left;
+		opacity:0;
+	}
+	.header__inner {
+		@include container();
 	}
 }
