@@ -36,17 +36,8 @@
 }
 header {
 	@include position(relative);
+	z-index:2;
 	padding:20px 0;
-	&:before {
-		@include position(absolute, 0 0 0 0);
-		display:block;
-		content: '';
-		background: #2196f3; /* Old browsers */
-		background: -moz-linear-gradient(-45deg,  #2196f3 0%, #f44336 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(-45deg,  #2196f3 0%,#f44336 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(135deg,  #2196f3 0%,#f44336 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-	}
 	.logo {
 		display: block;
 		float:left;

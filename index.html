@@ -80,33 +80,36 @@
     		</div>
     	</header>
     	<main>
+			<input type="checkbox" name="project-1" id="project-1" class="project__active" />
 			<section class="project">
-				<div class="project__container">
-					<div class="project__title">
-						nintendo.com.au
-						<div class="project__dot--1">
-							<span>Design cut</span>
-						</div>
-						<div class="project__dot--2">
-							<span>Liaise with client</span>
-						</div>
-						<div class="project__dot--3">
-							<span>Project management</span>
-						</div>
+				<label for="project-1" class="project__title">
+					<div class="project__heading">
+						NINTENDO.COM.AU
 					</div>
-					<div class="project__screens">
-						<div class="project__slide" style="background-image:url('/images/slide-nintendo.jpg');"></div>
-						<a href="http://www.nintendo.com.au/" class="project__link" target="_blank">
-							<div class="project__view">
-								View Website
-							</div>
-						</a>
-						<div class="project__description"></div>
-						</a>
+				</label>
+				<label for="project-1" class="project__close">
+					Close
+					<i class="fa fa-times-circle" aria-hidden="true"></i>
+				</label>
+				<div class="project__screen">
+					<div class="project__dot--1">
+						<i class="fa fa-scissors" aria-hidden="true"></i>
+						<div class="project__task">Design cut</div>
+					</div>
+					<div class="project__dot--2">
+						<i class="fa fa-male" aria-hidden="true"></i>
+						<div class="project__task">Liaise with client</div>
+					</div>
+					<div class="project__dot--3">
+						<i class="fa fa-pie-chart" aria-hidden="true"></i>
+						<div class="project__task">Project<br />management</div>
 					</div>
 				</div>
+				<div class="project__description">
+					test
+				</div>
 			</section>
-			<section class="project">
+			<!-- <section class="project">
 				<div class="project__container">
 					<div class="project__title">
 						visitmorningtonpeninsula.org
@@ -155,7 +158,7 @@
 						<div class="project__description"></div>
 					</div>
 				</div>
-			</section>
+			</section> -->
     	</main>
         <script src="https://use.fontawesome.com/811b028629.js"></script>
     </body>
