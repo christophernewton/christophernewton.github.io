@@ -39,11 +39,10 @@ input[type="checkbox"] {
     background:#8f6b92;
 }
 .project {
-	@include position(relative);
+	@include position(absolute, 160px null null null);
 	@include clearfix;
-	//min-height:calc(100vh - 90px);
+	width:100%;
 	z-index:2;
-	padding:20px 0 0 0;
 	.project__screen {
 		@include display(flex);
 		@include flex-direction(row);
@@ -117,8 +116,8 @@ input[type="checkbox"] {
 		color:#fff;
 	}
 	.project__close {
-		@include position(absolute, -110px 0px null null);
-		@include transform(translate(-10px));
+		@include position(fixed, null null 0 33%);
+		@include transform(translate(-50%,0));
 		@include transition(all 0.2s $ease-out-quad 0s);
 		opacity:0;
 		color:#fff;
@@ -141,6 +140,9 @@ input[type="checkbox"] {
 			font-size: 14px;
 			margin-left:10px;
 		}
+		@include media($mq-lap) {
+			@include position(absolute, -165px 0px auto auto);
+		}
 	}
 	.project__description {
 		@include transform(translate(-10px));
@@ -151,27 +153,64 @@ input[type="checkbox"] {
 .project__buttons {
 	@include position(absolute, 50% null null null);
 	@include transform(translate(0,-50%));
+	@include display(flex);
+	@include flex-direction(row);
+	@include justify-content(space-around);
+	@include flex-wrap(wrap);
 	width:100%;
 	z-index:5;
-	.project__heading {
-		@include media($mq-lap) {
-			@include position(absolute, 50% null null 50%);
-			@include transform(translate(-50%,-50%));
-		}
+	@include media($mq-desk) {
+		@include flex-wrap(nowrap);
 	}
 	.project__title {
 		@include border-top-radius(300px);
 		@include border-bottom-radius(300px);
 		@include transition(all 0.2s $ease-out-quad);
+		@include flex(1);
+		@include position(relative);
+		@include size(200px 200px);
+		max-width:200px;
 		pointer-events: auto;
-		background:#dd1402;
 		color:#fff;
-		display:block;
 		z-index:3;
 		margin:0 20px 20px 20px;
 		text-align: center;
 		padding:20px;
+		&[for="project-1"] {
+			background:url('/images/nintendo.png') #dd1402 no-repeat center center;
+			background-size:cover;
+		}
+		&[for="project-2"] {
+			background:url('/images/mornington.jpg') no-repeat center center;
+			background-size:cover;
+		}
+		&[for="project-3"] {
+			background:url('/images/rivalea.jpg') no-repeat center center;
+			background-size:cover;
+		}
+		&:before {
+			@include position(absolute, 0 0 0 0);
+			@include border-top-radius(100%);
+			@include border-bottom-radius(100%);
+			@include transform(scale(1));
+			@include transition(all 0.2s $ease-out-quad);
+			opacity:0;
+			content:'';
+			background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+			background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: radial-gradient(ellipse at center,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+		}
 		&:hover {
+			@include transform(translateY(-3px));
+			&:before {
+				@include transform(scale(0.98));
+				opacity:1;
+			}
+			.project__heading {
+				opacity:1;
+			}
 			cursor: pointer;
 			will-change: transform, opacity;
 			& ~ .project__close,
@@ -183,44 +222,133 @@ input[type="checkbox"] {
 			}
 		}
 		@include media($mq-lap) {
-			& {
-				margin:0;
-				padding:0;
-			}
-			&[for="project-1"] {
-				left:10%;
-			}
-			&[for="project-2"] {
-				left:50%;
-				@include transform(translate(-50%,-50%));
-			}
-			&[for="project-3"] {
-				left:auto;
-				right:10%;
-			}
-			@include position(absolute, 50% null null 0);
-			@include transform(translateY(-50%));
-			@include size(100px 100px);
+			@include size(200px 200px);
+			max-width:200px;
 			font-size:14px;
 		}
 		@include media($mq-desk) {
-			@include size(150px 150px);
+			@include size(200px 200px);
+			max-width:200px;
 		}
 		@include media($mq-wall) {
 			@include size(300px 300px);
+			max-width:300px;
+		}
+	}
+	.project__heading {
+		@include position(relative, 50% null null 50%);
+		@include transform(translate(-50%,-50%));
+		@include transition(all 0.2s $ease-out-quad);
+		opacity:0;
+		@include media($mq-lap) {
+			@include position(absolute, 50% null null 50%);
+			@include transform(translate(-50%,-50%));
 		}
 	}
 }	
 input.project-1:checked {
 	& ~ main {
-		.project__title {
-			@include transform(rotate(45deg) translateY(-75%) scale(0.5));
+		.project__title[for="project-1"] {
+			@include transform(rotate(0deg) scale(1.2));
+			opacity:0;
+			pointer-events:none;
+		}
+		.project__title[for="project-2"], .project__title[for="project-3"] {
+			@include transform(rotate(45deg) scale(0.0));
 			opacity:0;
 			pointer-events:none;
 		}
 		.project-1 {
 			.project__screen {
-				.project__dot--1,.project__dot--2,.project__dot--3 {
+				.project__dot--1, .project__dot--2, .project__dot--3 {
+					@include transform(translateX(0px) rotate(0deg));
+					opacity:1;
+				}
+				.project__task {
+					@include transform(translateX(0px));
+					opacity:1;
+				}
+			}
+			.project__close {
+				@include transition-delay(0.4s);
+				@include transform(translateX(0px));
+				opacity:1;
+				pointer-events: auto;
+			}
+			.project__description {
+				@include transform(translateX(0px));
+				@include transition-delay(0.6s);
+				opacity:1;
+			}
+		}
+		&:before {
+			background: #2196f3; /* Old browsers */
+			background: -moz-linear-gradient(top,  #2196f3 0%, #8f6b92 50%, #f44336 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #2196f3 0%,#8f6b92 50%,#f44336 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #2196f3 0%,#8f6b92 50%,#f44336 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=0 ); /* IE6-9 */
+		}
+	}
+}	
+input.project-2:checked {
+	& ~ main {
+		.project__title[for="project-2"] {
+			@include transform(rotate(0deg) scale(1.2));
+			opacity:0;
+			pointer-events:none;
+		}
+		.project__title[for="project-1"], .project__title[for="project-3"] {
+			@include transform(rotate(45deg) scale(0.0));
+			opacity:0;
+			pointer-events:none;
+		}
+		.project-2 {
+			.project__screen {
+				.project__dot--1, .project__dot--2, .project__dot--3 {
+					@include transform(translateX(0px) rotate(0deg));
+					opacity:1;
+				}
+				.project__task {
+					@include transform(translateX(0px));
+					opacity:1;
+				}
+			}
+			.project__close {
+				@include transition-delay(0.4s);
+				@include transform(translateX(0px));
+				opacity:1;
+				pointer-events: auto;
+			}
+			.project__description {
+				@include transform(translateX(0px));
+				@include transition-delay(0.6s);
+				opacity:1;
+			}
+		}
+		&:before {
+			background: #2196f3; /* Old browsers */
+			background: -moz-linear-gradient(top,  #2196f3 0%, #8f6b92 50%, #f44336 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #2196f3 0%,#8f6b92 50%,#f44336 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #2196f3 0%,#8f6b92 50%,#f44336 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#f44336',GradientType=0 ); /* IE6-9 */
+		}
+	}
+}
+input.project-3:checked {
+	& ~ main {
+		.project__title[for="project-3"] {
+			@include transform(rotate(0deg) scale(1.2));
+			opacity:0;
+			pointer-events:none;
+		}
+		.project__title[for="project-1"], .project__title[for="project-2"] {
+			@include transform(rotate(45deg) scale(0.0));
+			opacity:0;
+			pointer-events:none;
+		}
+		.project-3 {
+			.project__screen {
+				.project__dot--1, .project__dot--2, .project__dot--3 {
 					@include transform(translateX(0px) rotate(0deg));
 					opacity:1;
 				}
