@@ -20,22 +20,22 @@ $mq-desk: new-breakpoint(min-width $width-desk-mq 12);
 $mq-wall: new-breakpoint(min-width $width-wall-mq 12);
 
 @mixin container() {
-    @include position(relative, null null null null);
-    @include outer-container();
-    @include size($width-palm initial);
+	@include position(relative, null null null null);
+	@include outer-container();
+	@include size($width-palm initial);
 
-    @include media($mq-lap) {
-        @include outer-container($width-lap-max);
-        @include size($width-lap initial);
-    }
+	@include media($mq-lap) {
+		@include outer-container($width-lap-max);
+		@include size($width-lap initial);
+	}
 
-    @include media($mq-desk) {
-        @include outer-container($width-desk-max);
-        @include size($width-desk initial);
-    }
+	@include media($mq-desk) {
+		@include outer-container($width-desk-max);
+		@include size($width-desk initial);
+	}
 
-    @include media($mq-wall) {
-        @include outer-container($width-wall-max);
-        @include size($width-wall initial);
-    }
+	@include media($mq-wall) {
+		@include outer-container($width-wall-max);
+		@include size($width-wall initial);
+	}
 }

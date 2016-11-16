@@ -1,19 +1,36 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <title>Chris Newton Portfolio</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" />
-        <link rel="stylesheet" href="/stylesheets/dist/all.css" />
-    </head>
-    <body>
-    	<header>
-    		<div class="header__inner">
-    			<a href="/">
-    				<!-- You are probably wondering how I did the logo right? Its done with just css, you can see how I did it in the header.scss file located here > https://github.com/christophernewton/christophernewton.github.io/blob/master/stylesheets/src/components/header.scss#L3 -->
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>Chris Newton Portfolio</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+		<link rel="stylesheet" href="/stylesheets/dist/all.css" />
+		<!-- So I built this site without javascript intentionally, I wanted to stretch myself and my love of all things front end, my love ends here though, I really wanted the escape key to bring you back to the first state and the reason why I have it inline is because I cant justify another request just for a simple escape key press -->
+		<script type="text/javascript">
+			document.onkeydown = function(event) {
+				event = event || window.event;
+				var escapePress = false;
+				if ("key" in event) {
+					escapePress = (event.key == "Escape" || event.key == "Esc");
+				} else {
+					escapePress = (event.keyCode == 27);
+				}
+				if (escapePress) {
+					document.getElementById("project-1").checked = false;
+					document.getElementById("project-2").checked = false;
+					document.getElementById("project-3").checked = false;
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="header__inner">
+				<a href="/" class="logo__link">
+					<!-- You are probably wondering how I did the logo right? Its done with css, you can see how I did it in the header.scss file located here > https://github.com/christophernewton/christophernewton.github.io/blob/master/stylesheets/src/components/header.scss#L3 (long story short it animates outlines, fades out and then fades in the solid part) -->
 					<svg xmlns="http://www.w3.org/2000/svg" width="300" height="50" class="logo">
 						<g class="logo__lines">
 							<path fill="transparent" stroke="#fff" stroke-width="2" d="M26.708,38.014c-1.395,0.719-4.32,1.439-8.01,1.439c-8.549,0-14.939-5.4-14.939-15.39c0-9.54,6.435-15.929,15.839-15.929
@@ -72,18 +89,19 @@
 								V8.629h6.301v30.329h-7.201l-6.479-11.7c-1.801-3.284-3.826-7.154-5.266-10.709h-0.18c0.225,4.05,0.314,8.325,0.314,13.274v9.135 H269.66z"/>
 						</g>
 					</svg>
-	    		</a>
-	    		<div class="header__tagline">
-	    			31 Year old guy who likes to make <strong>cool</strong> looking, <strong>functionally</strong> amazing, <strong>super fast</strong> websites<br />
-	    			<i class="fa fa-envelope" aria-hidden="true"></i> christopherjnewton [at] gmail [dot] com
-	    		</div>
-    		</div>
-    	</header>
-    	<input type="checkbox" name="project-1" id="project-1" class="project-1" />
-    	<input type="checkbox" name="project-2" id="project-2" class="project-2" />
-    	<input type="checkbox" name="project-3" id="project-3" class="project-3" />
-    	<main>
-    		<div class="project__buttons">
+				</a>
+				<div class="header__tagline">
+					31 Year old guy who likes to make <strong>cool</strong> looking, <strong>functionally</strong> amazing, <strong>super fast</strong> websites<br />
+					<i class="fa fa-envelope" aria-hidden="true"></i> christopherjnewton [at] gmail [dot] com
+				</div>
+			</div>
+		</header>
+		<!-- Since this was a one pager I wanted to keep it simple and wanted to play with inputs and timings which is why I used checkboxes for the active state -->
+		<input type="checkbox" name="project-1" id="project-1" class="project-1" />
+		<input type="checkbox" name="project-2" id="project-2" class="project-2" />
+		<input type="checkbox" name="project-3" id="project-3" class="project-3" />
+		<main>
+			<div class="project__buttons">
 				<label for="project-1" class="project__title">
 					<div class="project__heading">
 						nintendo.com.au
@@ -112,22 +130,28 @@
 					</div>
 					<div class="project__dot--2">
 						<i class="fa fa-male" aria-hidden="true"></i>
-						<div class="project__task">Liaise with client</div>
+						<div class="project__task">Liaise<br />with client</div>
 					</div>
 					<div class="project__dot--3">
 						<i class="fa fa-pie-chart" aria-hidden="true"></i>
 						<div class="project__task">Project<br />management</div>
 					</div>
 				</div>
-				<div class="project__description">
-					<p>Working with a team of 7 we built a new site from the ground up. My responsibilities include </p>
+				<article class="project__description">
+					<h1>Nintendo</h1>
+					<p>Working with a team of 7 people, together we built a new site from the ground up using Core dna. My responsibilities for this project include </p>
 					<ul>
 						<li>communicating with marketing and design teams. </li>
 						<li>code standards and quality assurance</li>
 						<li>delegating tasks to remote employees</li>
 						<li>making sure time lines are kept</li>
 					</ul>
-				</div>
+					<h2>Challenges</h2>
+					<p>This project launched in multiple phases with the homepage, Wii U and 3ds pages launching first and then continuing work on support, help and games catalogue.</p>
+					<p>The approval process was lengthy with each phase so management of branches and sandboxes were key to making sure each phase launched successfully.</p>
+					<!-- Personally, I'm all for letting the user choose if they middle click to open in a new tab over forcing them with target=_blank but I have never met a marketer that doesn't want it so I'm putting it here in case whoever reads this is one ;) -->
+					<a href="http://www.nintendo.com.au/" target="_blank">Visit nintendo.com.au</a>
+				</article>
 			</section>
 			<section class="project project-2">
 				<label for="project-2" class="project__close">
@@ -148,15 +172,13 @@
 						<div class="project__task">Project<br />management</div>
 					</div>
 				</div>
-				<div class="project__description">
-					<p>Working with a team of 7 we built a new site from the ground up. My responsibilities include </p>
-					<ul>
-						<li>communicating with marketing and design teams. </li>
-						<li>code standards and quality assurance</li>
-						<li>delegating tasks to remote employees</li>
-						<li>making sure time lines are kept</li>
-					</ul>
-				</div>
+				<article class="project__description">
+					<h1>Mornington Peninsula Tourism</h1>
+					<p>Rebuilding their new tourism site with a fresh and bright design I had a lot of creative freedom to add some cool animations to the design that was handed to us.</p>
+					<h2>Challenges</h2>
+					<p>This is a very content heavy website with a lot of large imagery so finding the balance between load times and the client wanting to show off their assets was priority.</p>
+					<a href="http://www.visitmorningtonpeninsula.org" target="_blank">Go to visitmorningtonpeninsula.org</a>
+				</article>
 			</section>
 			<section class="project project-3">
 				<label for="project-3" class="project__close">
@@ -177,17 +199,16 @@
 						<div class="project__task">Project<br />management</div>
 					</div>
 				</div>
-				<div class="project__description">
-					<p>Working with a team of 7 we built a new site from the ground up. My responsibilities include </p>
-					<ul>
-						<li>communicating with marketing and design teams. </li>
-						<li>code standards and quality assurance</li>
-						<li>delegating tasks to remote employees</li>
-						<li>making sure time lines are kept</li>
-					</ul>
-				</div>
+				<article class="project__description">
+					<h1>Rivalea</h1>
+					<p>This started out as an experiment by the marketing team at Rivalea and moved into a bit more of a micro site.</p>
+					<p>There was a lot of creative freedoms given in this project with the only real direction given was that they wanted a horizontal scrolling website.</p>
+					<h2>Challenges</h2>
+					<p>Setting positions based on active states using hashbangs, knowing what I know now I would have approached it differently.</p>
+					<p>Originally this was meant to be a static site but it was ported half way through into Dot Net Nuke so some of the code needed to be re-factored to allow this.</p>
+				</article>
 			</section>
-    	</main>
-        <script src="https://use.fontawesome.com/811b028629.js"></script>
-    </body>
+		</main>
+		<script src="https://use.fontawesome.com/811b028629.js"></script>
+	</body>
 </html>
