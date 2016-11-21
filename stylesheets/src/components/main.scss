@@ -1,8 +1,8 @@
-body, html {
+body.portfolio, html {
 	height:100%;
 	background-color:#7b2721;
 }
-body {
+body.portfolio {
 	background:url("/images/bg.jpg") center center no-repeat; 
 	background-size:cover;
 	background-color:#eee;
@@ -182,7 +182,7 @@ input[type="checkbox"] {
 	@include flex-wrap(wrap);
 	width:100%;
 	z-index:5;
-	@include media($mq-desk) {
+	@include media($mq-lap) {
 		@include position(absolute, 50% null null null);
 		@include transform(translate(0,-50%));
 		@include flex-wrap(nowrap);

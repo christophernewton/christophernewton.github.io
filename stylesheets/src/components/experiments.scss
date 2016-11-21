@@ -1,0 +1,23 @@
+@include keyframes(loading) {
+	0% {
+		background-size:40px 40px;
+		//@include transform(rotate(0deg));
+	}
+	100% {
+		background-size:50px 50px;
+		//@include transform(rotate(45deg));	
+	}
+}
+.loader {
+	background: none;
+	.container {
+		@include animation(loading 10000ms $ease-out-quad infinite);
+		@include transform-origin(center center);
+		width:100vw;
+		height:100vh;
+		background:url('/images/loading-phase-1.svg');
+	}
+	body {
+		overflow:hidden;
+	}
+}
