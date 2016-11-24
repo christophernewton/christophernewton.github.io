@@ -5,17 +5,29 @@ $zindex40:40;
 
 .ui {
 	font-family:'Open Sans', arial;
+	font-size:14px;
 	background: none;
+	p {
+		line-height:30px;
+	}
 	a {
 		text-decoration: none;
 	}
 	nav {
 		@include position(fixed, 0 null null 0);
-		background:#1f2022;
 		height:100%;
 		width:200px;
+		&:before {
+			@include position(fixed, 0 null null 0);
+			height:100%;
+			width: 200px;
+			content:'';
+			background:#1f2022;
+			z-index:1;
+		}
 		a {
 			display:block;
+			font-size:16px;
 		}
 		ul {
 			padding:0;
@@ -24,21 +36,15 @@ $zindex40:40;
 		}
 		/* Level 1 */
 		& > ul {
-			z-index: $zindex40;
 			& > li {
 				@include position(relative);
-				border-bottom:1px solid #262729;
-				border-top:1px solid #171819;
-				&:first-child {
-					border-top:0;
-				}
 				&:before, &:after {
 					content:'';
 					display:block;
 				}
 				&:after {
 					@include position(absolute, 0 null null 0);
-					@include transition(all 3000ms $ease-out-expo);
+					@include transition(all 1000ms $ease-out-expo);
 					@include transform(translate(-100%,0));
 					z-index:$zindex10;
 					width:100%;
@@ -46,7 +52,7 @@ $zindex40:40;
 				}
 				&:before {
 					@include position(absolute, 0 null null 0);
-					@include transition(all 3000ms $ease-out-quad);
+					@include transition(all 1000ms $ease-out-quad);
 					z-index:$zindex20;
 					width:100%;
 					height:100%;
@@ -64,7 +70,7 @@ $zindex40:40;
 						opacity:0;
 					}
 					& > ul {
-						@include transition(all 300ms $ease-out-expo 3000ms);
+						@include transition(all 300ms $ease-out-expo 800ms);
 						@include transform(translate(200px));
 						opacity:1;
 						pointer-events: auto;
@@ -82,36 +88,59 @@ $zindex40:40;
 			@include position(fixed, 0 null null 0);
 			@include transition(all 100ms $ease-out-expo 500ms);
 			pointer-events: none;
-			width:400px;
+			padding-top:108px;
+			width:300px;
 			height:100%;
 			z-index:0;
 			opacity:0;
 			& a {
-				padding:15px 10px;
+				@include transition(all 300ms $ease-out-quad);
+				padding:15px 10px 15px 20px;
 			}
 		}
 		.nav__content {
 			&:after, ul {
 				background-color:#0ba6e0;
-			}	
+			}
+			ul a:hover {
+				background-color:darken(#0ba6e0,3%);
+			}
 		}
 		.nav__connections {
 			&:after, ul {
 				background-color:#fa5000;
-			}	
+			}
+			ul a:hover {
+				background-color:darken(#fa5000,3%);
+			}
 		}
 		.nav__interactions {
 			&:after, ul {
 				background-color:#e1059b;
-			}	
+			}
+			ul a:hover {
+				background-color:darken(#e1059b,3%);
+			}
 		}
 		.nav__transactions {
 			&:after, ul {
 				background-color:#81be0a;
-			}	
+			}
+			ul a:hover {
+				background-color:darken(#81be0a,3%);
+			}
 		}
 		.logo {
+			@include position(relative);
+			z-index:2;
 			padding:30px 20px;
 		}
+	}
+	.container {
+		padding: 32px 20px 40px 240px;
+		h1 {
+			margin:0;
+		}
+
 	}
 }
