@@ -15,12 +15,12 @@ $zindex40:40;
 	}
 	nav {
 		@include position(fixed, 0 null null 0);
+		width:240px;
 		height:100%;
-		width:200px;
 		&:before {
 			@include position(fixed, 0 null null 0);
 			height:100%;
-			width: 200px;
+			width:240px;
 			content:'';
 			background:#1f2022;
 			z-index:1;
@@ -28,6 +28,11 @@ $zindex40:40;
 		a {
 			display:block;
 			font-size:16px;
+			.fa {
+				margin-right:20px;
+				display: inline-block;
+				min-width:14px;
+			}
 		}
 		ul {
 			padding:0;
@@ -71,7 +76,7 @@ $zindex40:40;
 					}
 					& > ul {
 						@include transition(all 300ms $ease-out-expo 800ms);
-						@include transform(translate(200px));
+						@include transform(translate(240px));
 						opacity:1;
 						pointer-events: auto;
 					}
@@ -88,7 +93,7 @@ $zindex40:40;
 			@include position(fixed, 0 null null 0);
 			@include transition(all 100ms $ease-out-expo 500ms);
 			pointer-events: none;
-			padding-top:108px;
+			padding-top:119px;
 			width:300px;
 			height:100%;
 			z-index:0;
@@ -137,7 +142,7 @@ $zindex40:40;
 		}
 	}
 	.container {
-		padding: 32px 20px 40px 240px;
+		padding: 32px 20px 40px 280px;
 		h1 {
 			margin:0;
 		}
