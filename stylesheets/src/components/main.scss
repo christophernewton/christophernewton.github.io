@@ -284,6 +284,9 @@ input.project-1:checked, input.project-2:checked, input.project-3:checked {
 		}
 	}
 }
+div.project-1,div.project-2,div.project-3 {
+	max-height:0;
+}
 input.project-1:checked {
 	& ~ main {
 		.project__title[for="project-1"] {
@@ -300,6 +303,7 @@ input.project-1:checked {
 			pointer-events:none;
 		}
 		.project-1 {
+			max-height:1000px;
 			.project__screen {
 				.project__dot--1, .project__dot--2, .project__dot--3 {
 					@include transform(translateX(0px) rotate(0deg));
@@ -340,6 +344,7 @@ input.project-2:checked {
 			pointer-events:none;
 		}
 		.project-2 {
+			max-height:1000px;
 			.project__screen {
 				.project__dot--1, .project__dot--2, .project__dot--3 {
 					@include transform(translateX(0px) rotate(0deg));
@@ -380,6 +385,7 @@ input.project-3:checked {
 			pointer-events:none;
 		}
 		.project-3 {
+			max-height:1000px;
 			.project__screen {
 				.project__dot--1, .project__dot--2, .project__dot--3 {
 					@include transform(translateX(0px) rotate(0deg));
