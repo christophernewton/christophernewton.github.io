@@ -1,8 +1,22 @@
-# christophernewton.github.io
-Hi there!
+# chrisnewton
 
-If you are looking at this then you are either wanting to use this repo and repurpose it for yourself or you are an employer looking to hire me
+> Portfolio of work
 
-Either way, you are welcome to poke around and see if you like anything you find here.
+## Build Setup
 
-Send me an email (which you can find in the index.html file) if you have any questions about my approach or work.
+``` bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn run dev
+
+# build for production and launch server
+$ yarn run build
+$ yarn start
+
+# generate static project
+$ yarn run generate
+```
+
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
