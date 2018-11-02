@@ -1,6 +1,6 @@
 <template>
   <section>
-    <logo />
+    <logo ref="logo" />
     <grid />
   </section>
 </template>
