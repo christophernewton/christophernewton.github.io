@@ -124,7 +124,7 @@ export async function setContext(app, context) {
       store: app.store,
       payload: context.payload,
       error: context.error,
-      base: '/',
+      base: '/christophernewton.github.io/',
       env: {}
     }
     // Only set once
