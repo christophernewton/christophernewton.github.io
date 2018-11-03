@@ -1,0 +1,201 @@
+<template>
+  <div
+    :class="`${$style.block} ${$style[color]}`"
+    @mouseover="mouseOver"
+    @mouseleave="mouseLeave">
+    <Content
+      :pose="isFullscreen ? 'fullscreen' : 'thumbnail'"
+      :class="`${$style.content} ${$style[color]} full-${isFullscreen}`"
+      @click.native="fullScreen">
+      <div :class="`${$style.container} ${'container'+$style[color]}`">
+        <close />
+        <slot />
+      </div>
+    </Content>
+    <Box :pose="isVisible ? 'visible' : 'hidden'">
+      <Item
+        v-for="(item, key) in text"
+        :key="key"
+        :class="$style.letters"
+        v-html="item" />
+    </Box>
+  </div>
+</template>
+
+<script>
+import posed from 'vue-pose'
+import Close from '@/components/Close.vue'
+export default {
+  components: {
+    Close,
+    Box: posed.div({
+      visible: {
+        staggerChildren: 25,
+      },
+      hidden: {
+        staggerChildren: 0,
+      },
+    }),
+    Content: posed.div({
+      fullscreen: {
+        width: '100vw',
+        height: '100vh',
+        transition: {
+          ease: [0.86, 0.0, 0.07, 1.0],
+        },
+        flip: true,
+        opacity: 1,
+        scale: 1,
+        zIndex: 10,
+      },
+      thumbnail: {
+        width: '100%',
+        height: '100%',
+        transition: {
+          ease: [0.86, 0.0, 0.07, 1.0],
+        },
+        flip: true,
+        opacity: 0,
+        scale: 1,
+        zIndex: 1,
+      },
+    }),
+    Item: posed.div({
+      visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      },
+      hidden: {
+        opacity: 0,
+        scale: 0,
+        y: 50,
+        transition: {
+          duration: 100
+        },
+      },
+    }),
+  },
+  props: {
+    text: {
+      type: Array,
+      default: null,
+    },
+    color: {
+      type: String,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      isVisible: false,
+      isFullscreen: false,
+    }
+  },
+  methods: {
+    mouseOver() {
+      this.isVisible = true
+    },
+    mouseLeave() {
+      this.isVisible = false
+    },
+    fullScreen() {
+      this.isVisible = false
+      this.isFullscreen = !this.isFullscreen
+      this.$store.dispatch('showLogo')
+      console.log
+    },
+  },
+}
+</script>
+
+<style lang="scss" module>
+:root {
+  --block-blue: #2ab7ca;
+  --block-red: #e01a4f;
+  --block-yellow: #2a2d34;
+  --block-green: #16db93;
+}
+.blockBlue,
+.blockRed,
+.blockYellow,
+.blockGreen {
+  width: 50%;
+  height: 50%;
+  color: #fff;
+  position: absolute;
+}
+.blockBlue {
+  background: var(--block-blue);
+  top: 0;
+  left: 0;
+}
+.blockRed {
+  background: var(--block-red);
+  top: 0;
+  right: 0;
+}
+.blockYellow {
+  background: var(--block-yellow);
+  bottom: 0;
+  left: 0;
+}
+.blockGreen {
+  background: var(--block-green);
+  bottom: 0;
+  right: 0;
+}
+.letters {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  @media (min-width: 770px) {
+    font-size: 24px;
+  }
+}
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 990px;
+  margin: auto;
+  padding: 40px 20px;
+}
+.containerblockBlue {
+  background: var(--block-blue);
+}
+.containerblockRed {
+  background: var(--block-red);
+}
+.containerblockYellow {
+  background: var(--block-yellow);
+}
+.containerblockGreen {
+  background: var(--block-green);
+}
+</style>
+<style lang="scss">
+.full-true {
+  z-index: 10;
+  & + div {
+    opacity: 0;
+  }
+}
+.full-false {
+  overflow: hidden;
+}
+</style>
