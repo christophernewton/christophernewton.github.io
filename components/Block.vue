@@ -152,6 +152,7 @@ export default {
   position: relative;
   z-index: 2;
   pointer-events: none;
+  opacity: 0;
   @media (min-width: 770px) {
     font-size: 24px;
   }
@@ -168,8 +169,8 @@ export default {
   position: absolute;
   display: flex;
   align-items: center;
+  opacity: 0;
 }
-
 .container {
   max-width: 990px;
   margin: auto;
