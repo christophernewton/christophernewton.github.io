@@ -118,13 +118,13 @@ export async function setContext(app, context) {
   if (!app.context) {
     app.context = {
       isStatic: process.static,
-      isDev: true,
+      isDev: false,
       isHMR: false,
       app,
       store: app.store,
       payload: context.payload,
       error: context.error,
-      base: '',
+      base: '/christophernewton.github.io/',
       env: {}
     }
     // Only set once
