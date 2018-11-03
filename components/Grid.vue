@@ -66,8 +66,6 @@
         <li>Creating webpack tooling to help the team enter the project faster</li>
       </ul>
       <br >
-      <h2>Challenges</h2>
-      <p>This project had a quick turn around of 4 weeks so organisation was important. We sat down and created tickets with the team to get to MVP within the timeline.</p>
       <a
         href="https://www.wodongatafe.edu.au/"
         target="_blank">Visit wodongatafe.edu.au</a>

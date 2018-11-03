@@ -1,7 +1,7 @@
 {
   "name": "chrisnewton",
   "version": "1.0.0",
-  "description": "Portfolio of work",
+  "description": "Portfolio of work for Chris Newton in Melbourne Victoria, Australia",
   "author": "Chris Newton",
   "private": true,
   "scripts": {
@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "node-sass": "^4.9.4",
     "nuxt": "^2.0.0",
     "push-dir": "^0.4.1",
+    "sass-loader": "^7.1.0",
     "vue-pose": "^0.5.0"
   },
   "devDependencies": {

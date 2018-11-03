@@ -50,7 +50,10 @@ module.exports = {
   */
   modules: [],
   router: {
-    base: '/christophernewton.github.io/',
+    base:
+      process.env.DEPLOY_ENV === 'GH_PAGES'
+        ? '/christophernewton.github.io/'
+        : '',
   },
   /*
   ** Build configuration
