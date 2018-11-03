@@ -49,7 +49,12 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [],
-
+  router: {
+    base:
+      process.env.DEPLOY_ENV === 'GH_PAGES'
+        ? '/christophernewton.github.io/'
+        : '',
+  },
   /*
   ** Build configuration
   */
