@@ -7,17 +7,22 @@
       :pose="isFullscreen ? 'fullscreen' : 'thumbnail'"
       :class="`${$style.content} ${$style[color]} full-${isFullscreen}`"
       @click.native="fullScreen">
-      <div :class="`${$style.container} ${'container'+$style[color]}`">
+      <div :class="`${$style.container} container${color}`">
         <close />
-        <slot />
+        <slot name="content" />
       </div>
     </Content>
-    <Box :pose="isVisible ? 'visible' : 'hidden'">
+    <Box
+      :pose="isVisible ? 'visible' : 'hidden'"
+      :class="$style.letter"
+      v-if="showLogo">
       <Item
         v-for="(item, key) in text"
         :key="key"
         :class="$style.letters"
-        v-html="item" />
+      >
+        {{ item }}
+      </Item>
     </Box>
   </div>
 </template>
@@ -71,7 +76,7 @@ export default {
         scale: 0,
         y: 50,
         transition: {
-          duration: 100
+          duration: 100,
         },
       },
     }),
@@ -103,7 +108,12 @@ export default {
       this.isVisible = false
       this.isFullscreen = !this.isFullscreen
       this.$store.dispatch('showLogo')
-      console.log
+      window.scrollTop
+    },
+  },
+  computed: {
+    showLogo() {
+      return this.$store.state.showLogo
     },
   },
 }
@@ -176,17 +186,13 @@ export default {
   margin: auto;
   padding: 40px 20px;
 }
-.containerblockBlue {
-  background: var(--block-blue);
-}
-.containerblockRed {
-  background: var(--block-red);
-}
-.containerblockYellow {
-  background: var(--block-yellow);
-}
-.containerblockGreen {
-  background: var(--block-green);
+.letter {
+  .letters {
+    @media (max-width: 770px) {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }
 </style>
 <style lang="scss">
@@ -198,5 +204,17 @@ export default {
 }
 .full-false {
   overflow: hidden;
+}
+.containerblockBlue {
+  background: var(--block-blue);
+}
+.containerblockRed {
+  background: var(--block-red);
+}
+.containerblockYellow {
+  background: var(--block-yellow);
+}
+.containerblockGreen {
+  background: var(--block-green);
 }
 </style>

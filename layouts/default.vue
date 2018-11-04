@@ -5,10 +5,15 @@
 </template>
 
 <style>
+:root {
+  --font-family-primary: 'Source Sans Pro';
+  --font-family-secondary: 'Fredoka One';
+}
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-family-primary);
   font-size: 16px;
+  color: #fff;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
