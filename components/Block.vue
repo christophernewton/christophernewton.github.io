@@ -13,9 +13,9 @@
       </div>
     </Content>
     <Box
+      v-if="showLogo"
       :pose="isVisible ? 'visible' : 'hidden'"
-      :class="$style.letter"
-      v-if="showLogo">
+      :class="$style.letter">
       <Item
         v-for="(item, key) in text"
         :key="key"
@@ -97,6 +97,11 @@ export default {
       isFullscreen: false,
     }
   },
+  computed: {
+    showLogo() {
+      return this.$store.state.showLogo
+    },
+  },
   methods: {
     mouseOver() {
       this.isVisible = true
@@ -109,11 +114,6 @@ export default {
       this.isFullscreen = !this.isFullscreen
       this.$store.dispatch('showLogo')
       window.scrollTop
-    },
-  },
-  computed: {
-    showLogo() {
-      return this.$store.state.showLogo
     },
   },
 }

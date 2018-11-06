@@ -1,6 +1,8 @@
 <template>
   <div>
-    <block color="blockBlue" :text="spanWrap('About')">
+    <block 
+      :text="spanWrap('About')" 
+      color="blockBlue">
       <div slot="content">
         <h1 :class="$style.title">About</h1>
         <p>Born and raised in Wodonga Victoria, I worked with WEB MATRIX for 11
@@ -36,7 +38,9 @@
         <p>christopherjnewton [at] gmail [dot] com</p>
       </div>
     </block>
-    <block color="blockRed" :text="spanWrap('Nintendo.com.au')">
+    <block 
+      :text="spanWrap('Nintendo.com.au')" 
+      color="blockRed">
       <div slot="content">
         <h1 :class="$style.title">Nintendo.com.au</h1>
         <p>Working with a team of 7 people, together we built a new site from the ground up using Coredna. My responsibilities for this project include </p>
@@ -55,7 +59,9 @@
           target="_blank">Visit nintendo.com.au</a>
       </div>
     </block>
-    <block color="blockYellow" :text="spanWrap('Wodongatafe.edu.au')">
+    <block 
+      :text="spanWrap('Wodongatafe.edu.au')" 
+      color="blockYellow">
       <div slot="content">
         <h1 :class="$style.title">Wodongatafe.edu.au</h1>
         <p>Built on top of DNN and legacy modules, my responsibilities for this project include </p>
@@ -71,7 +77,9 @@
           target="_blank">Visit wodongatafe.edu.au</a>
       </div>
     </block>
-    <block color="blockGreen" :text="spanWrap('Benefits.suncorp.com.au')">
+    <block 
+      :text="spanWrap('Benefits.suncorp.com.au')" 
+      color="blockGreen">
       <div slot="content">
         <h1 :class="$style.title">Benefits.suncorp.com.au</h1>
         <p>Full rebuild of the front end converting legacy laravel blade templates over to Vue, my responsibilities for this project include </p>

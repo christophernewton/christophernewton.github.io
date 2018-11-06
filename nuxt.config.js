@@ -49,12 +49,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [],
-  router: {
-    base:
-      process.env.DEPLOY_ENV === 'GH_PAGES'
-        ? '/christophernewton.github.io/'
-        : '',
-  },
+  router: {},
   /*
   ** Build configuration
   */
@@ -64,14 +59,14 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
-      /* if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
         })
-      } */
+      }
     },
   },
 }

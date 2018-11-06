@@ -1,8 +1,15 @@
 module.exports = {
+  root: true,
   parserOptions: {
+    sourceType: 'module',
     parser: 'babel-eslint',
   },
-  extends: ['plugin:vue/recommended', 'plugin:prettier/recommended'],
-  // required to lint *.vue files
+  env: {
+    browser: true,
+  },
+  extends: ['prettier', 'prettier/standard', 'plugin:vue/recommended'],
   plugins: ['vue', 'prettier'],
+  rules: {
+    'prettier/prettier': 'error',
+  },
 }
