@@ -1,15 +1,29 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    sourceType: 'module',
-    parser: 'babel-eslint',
-  },
   env: {
-    browser: true,
+    node: true,
   },
-  extends: ['prettier', 'prettier/standard', 'plugin:vue/recommended'],
-  plugins: ['vue', 'prettier'],
+  extends: ['plugin:vue/recommended'],
   rules: {
-    'prettier/prettier': 'error',
+    'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/html-self-closing': 0,
+    'require-await': 0,
+  },
+  globals: {
+    document: true,
+    require: true,
+    module: true,
+    __dirname: true,
+    window: true,
+    console: true,
+    process: true,
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaFeatures: {
+      jsx: true,
+      modules: true,
+    },
   },
 }

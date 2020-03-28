@@ -2,11 +2,13 @@
   <div
     :class="`${$style.block} ${$style[color]}`"
     @mouseover="mouseOver"
-    @mouseleave="mouseLeave">
+    @mouseleave="mouseLeave"
+  >
     <Content
       :pose="isFullscreen ? 'fullscreen' : 'thumbnail'"
       :class="`${$style.content} ${$style[color]} full-${isFullscreen}`"
-      @click.native="fullScreen">
+      @click.native="fullScreen"
+    >
       <div :class="`${$style.container} container${color}`">
         <close />
         <slot name="content" />
@@ -15,7 +17,8 @@
     <Box
       v-if="showLogo"
       :pose="isVisible ? 'visible' : 'hidden'"
-      :class="$style.letter">
+      :class="$style.letter"
+    >
       <Item
         v-for="(item, key) in text"
         :key="key"
@@ -124,8 +127,13 @@ export default {
   --block-blue: #2ab7ca;
   --block-red: #e01a4f;
   --block-yellow: #2a2d34;
-  --block-green: #16db93;
+  --block-green: #02a167;
 }
+$block-blue: #2ab7ca;
+$block-red: #e01a4f;
+$block-yellow: #2a2d34;
+$block-green: #02a167;
+
 .blockBlue,
 .blockRed,
 .blockYellow,
@@ -134,26 +142,54 @@ export default {
   height: 50%;
   color: #fff;
   position: absolute;
+  &:before {
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    transition: all 250ms ease-out;
+  }
+  &:hover {
+    &:before {
+      opacity:0.5;
+    }
+  }
 }
 .blockBlue {
   background: var(--block-blue);
   top: 0;
   left: 0;
+  &:before {
+    background: radial-gradient(circle, var(--block-blue) 0%, darken($block-blue, 20%) 100%);
+    opacity:0;
+  }
 }
 .blockRed {
   background: var(--block-red);
   top: 0;
   right: 0;
+    &:before {
+    background: radial-gradient(circle, var(--block-red) 0%, darken($block-red, 20%) 100%);
+    opacity:0;
+  }
 }
 .blockYellow {
   background: var(--block-yellow);
   bottom: 0;
   left: 0;
+    &:before {
+    background: radial-gradient(circle, var(--block-yellow) 0%, darken($block-yellow, 20%) 100%);
+    opacity:0;
+  }
 }
 .blockGreen {
   background: var(--block-green);
   bottom: 0;
   right: 0;
+    &:before {
+    background: radial-gradient(circle, var(--block-green) 0%, darken($block-green, 20%) 100%);
+    opacity:0;
+  }
 }
 .letters {
   display: inline-block;
@@ -198,6 +234,9 @@ export default {
 <style lang="scss">
 .full-true {
   z-index: 10;
+  &:before {
+    display: none;
+  }
   & + div {
     opacity: 0;
   }
