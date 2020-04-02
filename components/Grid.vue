@@ -22,7 +22,7 @@
 
         <p>
           My most recent position is with Revium leading the
-          front end team looking afte people management, code reviews and setting up standards and processes.
+          front end team looking after people management, code reviews and documenting standards and processes.
           I enjoy the challenges that come with being a front end developer,
           especially with complex and large jobs. I find it satisfying to work out
           ways to find the most efficient and best solutions possible.
@@ -44,17 +44,17 @@
         <br />
         <h4>Markup, languages and frameworks</h4>
         <ul>
-          <li>Html, Css, JavaScript, Sass/Less, Gulp, Webpack, Git, React, React Native, Angular, Vue, Nuxt, PHP, Node</li>
+          <li>Html, Css, JavaScript, Sass/Less, Gulp, Webpack, Rollup, Git, React, React Native, Angular, Vue, Nuxt, PHP, Node, Jest, Mocha</li>
         </ul>
         <br />
         <h4>CMS</h4>
         <ul>
-          <li>Wordpress, Drupal, Dotnet Nuke, Coredna, Kentico, Contentful</li>
+          <li>Wordpress, Drupal, Joomla, Dotnet Nuke, Coredna, Kentico, Contentful</li>
         </ul>
         <br />
         <h4>Server</h4>
         <ul>
-          <li>Docker, NGINX, Azure, AWS</li>
+          <li>Docker, NGINX, Azure, AWS, Prerenderer.io</li>
         </ul>
         <br />
         <br />
@@ -86,7 +86,9 @@
         <a
           href="http://www.nintendo.com.au/"
           target="_blank"
-        >Visit nintendo.com.au</a>
+        >
+          Visit nintendo.com.au
+        </a>
       </div>
     </block>
     <block 
@@ -97,18 +99,21 @@
         <h1 :class="$style.title">
           lumoenergy.com.au
         </h1>
-        <p>Staticaly built site with vue app for quote and join </p>
+        <p>Staticaly built site generated with webpack and using vue for quote and join to host the complex calculations required to present the user with accurate quotes.</p>
         <ul>
           <li>Liasing with client. </li>
-          <li>Code standards and quality assurance</li>
-          <li>Working with team to create solutions</li>
-          <li>Built and maintain webpack tooling to suit clients needs</li>
+          <li>In charge of daily stand ups and reporting to stake holders. </li>
+          <li>Code revews and quality assurance / testing</li>
+          <li>Working with team to create solutions such as node proxies to test the API</li>
+          <li>Built, maintained and extended webpack tooling to suit clients needs</li>
         </ul>
         <br />
         <a
           href="https://www.lumoenergy.com.au/"
           target="_blank"
-        >Visit lumoenergy.com.au</a>
+        >
+          Visit lumoenergy.com.au
+        </a>
       </div>
     </block>
     <block 
@@ -124,13 +129,17 @@
           <li>Research pre renderer and how that can be utilized</li>
           <li>Solution design for search using Azure search</li>
           <li>Created solution for kentico to pass data to front end via webapi</li>
-          <li>Code standards and quality assurance</li>
+          <li>Code standards and tests</li>
         </ul>
+        <p>This was the companies first dive into creating their own component library to reuse components accross projects so there was a learning curve for me to introduce the team to the concept.</p>
+        <p>We documented the library with Storybook and created unit tests using Jest and Mocha to ensure as much longevity and few bugs as possible.</p>
         <br />
         <a
           href="https://chw.net.au/"
           target="_blank"
-        >Visit chw.net.au</a>
+        >
+          Visit chw.net.au
+        </a>
       </div>
     </block>
   </div>
