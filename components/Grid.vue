@@ -10,9 +10,7 @@
         </h1>
         <p>
           Born and raised in Wodonga Victoria, I worked with WEB MATRIX for 11
-          years working remotely from different locations around Australia. I
-          moved on to head of development for Bwired located in Prahran where
-          my responsibilities shifted to overseeing local and overseas teams. My
+          years working remotely from different locations around Australia. My
           skill base extended to helping with build tools as well as <strong>cross-browser
             compatibility</strong> and strong knowledge of building templates for
           desktop/mobile on open source solutions like <strong>Dot Net Nuke, Joomla,
@@ -31,9 +29,9 @@
           What I love
         </h1>
         <ul>
-          <li>My wife</li>
+          <li>My wife and kids</li>
           <li>Playing, creating music</li>
-          <li>Sketch</li>
+          <li>Sketch, Figma</li>
           <li>Animation (achieveing 60fps)</li>
           <li>Interesting approaches to UI/UX</li>
         </ul>
@@ -44,17 +42,17 @@
         <br />
         <h4>Markup, languages and frameworks</h4>
         <ul>
-          <li>Html, Css, JavaScript, Sass/Less, Gulp, Webpack, Rollup, Git, React, React Native, Angular, Vue, Nuxt, PHP, Node, Jest, Mocha</li>
+          <li>Html, Css, JavaScript, Sass/Less, Gulp, Webpack, Rollup, Git, React, React Native, Vue, Nuxt, PHP, Node, Jest, Mocha</li>
         </ul>
         <br />
         <h4>CMS</h4>
         <ul>
-          <li>Wordpress, Drupal, Joomla, Dotnet Nuke, Coredna, Kentico, Contentful</li>
+          <li>Wordpress, Drupal, Joomla, Dotnet Nuke, Coredna, Kentico, Contentful, Acoustic, Storyblok</li>
         </ul>
         <br />
-        <h4>Server</h4>
+        <h4>Server / Infra</h4>
         <ul>
-          <li>Docker, NGINX, Azure, AWS, Prerenderer.io</li>
+          <li>Docker, NGINX, Caddy, Azure, AWS, Prerenderer.io</li>
         </ul>
         <br />
         <br />
@@ -65,34 +63,32 @@
       </div>
     </block>
     <block 
-      :text="spanWrap('Nintendo.com.au')" 
+      :text="spanWrap('cedarwoods.com.au/fletchers-slip/')" 
       color="blockRed"
     >
       <div slot="content">
         <h1 :class="$style.title">
-          Nintendo.com.au
+          cedarwoods.com.au
         </h1>
-        <p>Working with a team of 7 people, together we built a new site from the ground up using Coredna. My responsibilities for this project include </p>
+        <p>Together with my team, we built a site builder using Kentico. Utilising IIS and virtual directories these project sites use a single html file to power over 30 micro sites. </p>
         <ul>
-          <li>Communicating with marketing and design teams. </li>
-          <li>Code standards and quality assurance</li>
-          <li>Delegating tasks to remote employees</li>
+          <li>Communicating with and working closely with design.</li>
+          <li>Upholding code standards and quality assurance</li>
+          <li>Delegating tasks to team</li>
           <li>Making sure time lines are kept</li>
+          <li>Quoting and solution design</li>
         </ul>
         <br>
-        <h2>Challenges</h2>
-        <p>This project launched in multiple phases with the homepage, Wii U and 3ds pages launching first and then continuing work on support, help and games catalogue.</p>
-        <p>The approval process was lengthy with each phase so management of branches and sandboxes were key to making sure each phase launched successfully.</p>
         <a
-          href="http://www.nintendo.com.au/"
+          href="http://www.cedarwoods.com.au/fletchers-slip/"
           target="_blank"
         >
-          Visit nintendo.com.au
+          Visit cedarwoods.com.au
         </a>
       </div>
     </block>
     <block 
-      :text="spanWrap('Lumoenergy.com.au')" 
+      :text="spanWrap('lumoenergy.com.au')" 
       color="blockYellow"
     >
       <div slot="content">
@@ -122,7 +118,7 @@
     >
       <div slot="content">
         <h1 :class="$style.title">
-          Chw.net.au
+          chw.net.au
         </h1>
         <p>Rebuild of the site moving from a static build process to a single page app hosted via IIS and leveraging a pre renderer for SEO </p>
         <ul>

@@ -5,6 +5,7 @@
     @mouseleave="mouseLeave"
   >
     <Content
+      ref="content"
       :pose="isFullscreen ? 'fullscreen' : 'thumbnail'"
       :class="`${$style.content} ${$style[color]} full-${isFullscreen}`"
       @click.native="fullScreen"
